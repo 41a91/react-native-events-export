@@ -1,0 +1,42 @@
+{
+  "name": "react-native-events-export",
+  "version": "1.0.0",
+  "description": "Used to export events to an external calendar on the mobile device",
+  "main": "src/index.ts",
+  "keywords": [
+    "export",
+    "calendar",
+    "events"
+  ],
+  "homepage": "https://github.com/41a91/react-native-events-export#readme",
+  "bugs": {
+    "url": "https://github.com/41a91/react-native-events-export/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/41a91/react-native-events-export.git"
+  },
+  "license": "MIT",
+  "author": "Andrew Phelps",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint \"src/**/*.ts\""
+  },
+  "peerDependencies": {
+    "react-native": ">=0.80.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "jiti": "^2.6.1",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.1"
+  },
+  "files":[
+    "src/",
+    "andorid/",
+    "ios/",
+    "example/"
+  ]
+}
