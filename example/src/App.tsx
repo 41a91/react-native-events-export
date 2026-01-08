@@ -1,12 +1,21 @@
-import { Text, View, StyleSheet } from "react-native";
-import { multiply } from "react-native-events-export";
-
-const result = multiply(3, 7);
+import { View, StyleSheet, Button } from 'react-native';
+import { addEventWithEditor } from 'react-native-events-export';
 
 export default function App() {
+
+  const addEvent = () => {
+    try{
+      addEventWithEditor("Test Event", Date.now(), Date.now() + 3600 * 1000, "Test Location");
+    } catch {
+      console.log("Something happened");
+    }
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Button title={"Add Event"} onPress={() => {
+        addEvent();
+      }}/>
     </View>
   );
 }
@@ -14,7 +23,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
