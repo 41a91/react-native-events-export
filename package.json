@@ -1,6 +1,6 @@
 {
   "name": "react-native-events-export",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Allows a user to export an event to the default calendar on their mobile device",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",

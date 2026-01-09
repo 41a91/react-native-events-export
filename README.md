@@ -1,32 +1,59 @@
 # react-native-events-export
 
-Allows a user to export an event to the default calendar on their mobile device
+A React Native module to allow users to export events to their iOS or Android calendars.
 
 ## Installation
 
 
 ```sh
 npm install react-native-events-export
+# or
+yarn add react-native-events-export
 ```
 
 
 ## Usage
 
 
-```js
-import { multiply } from 'react-native-events-export';
+```ts
+import { addEventWithEditor } from 'react-native-events-export';
 
 // ...
 
-const result = multiply(3, 7);
+await addEventWithEditor({
+    title: 'Test Event',
+    startDate: Date.now(),
+    endDate: Date.now() + 3600 * 1000,
+    location: 'Test Location'
+});
+```
+## API
+
+### `addEventWithEditor(options)`
+
+#### Parameters
+
+| Name        | Type     | Required | Description                           |
+| ----------- | -------- | -------- | ------------------------------------- |
+| `title`     | `string` | ✅        | Event title                           |
+| `startDate` | `number` | ✅        | Start time (milliseconds since epoch) |
+| `endDate`   | `number` | ✅        | End time (milliseconds since epoch)   |
+| `location`  | `string` | ❌        | Event location                        |
+
+#### Returns
+
+```ts
+Promise<void>
 ```
 
+Resolves when the editor is dismissed.
+
+---
 
 ## Contributing
 
 - [Development workflow](CONTRIBUTING.md#development-workflow)
 - [Sending a pull request](CONTRIBUTING.md#sending-a-pull-request)
-- [Code of conduct](CODE_OF_CONDUCT.md)
 
 ## License
 
