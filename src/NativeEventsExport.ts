@@ -5,7 +5,12 @@ export interface Spec extends TurboModule {
     title: string,
     startDate: number,
     endDate: number,
-    location?: string
+    location?: string,
+    repeatOptions?: {
+      frequency: 'daily' | 'weekly' | 'monthly' | 'yearly';
+      interval: number;
+      until: number;
+    }
   ): Promise<void>;
 }
 

@@ -4,16 +4,13 @@ A React Native module to allow users to export events to their iOS or Android ca
 
 ## Installation
 
-
 ```sh
 npm install react-native-events-export
 # or
 yarn add react-native-events-export
 ```
 
-
 ## Usage
-
 
 ```ts
 import { addEventWithEditor } from 'react-native-events-export';
@@ -21,12 +18,13 @@ import { addEventWithEditor } from 'react-native-events-export';
 // ...
 
 await addEventWithEditor({
-    title: 'Test Event',
-    startDate: Date.now(),
-    endDate: Date.now() + 3600 * 1000,
-    location: 'Test Location'
+  title: 'Test Event',
+  startDate: Date.now(),
+  endDate: Date.now() + 3600 * 1000,
+  location: 'Test Location',
 });
 ```
+
 ## API
 
 ### `addEventWithEditor(options)`
@@ -35,15 +33,15 @@ await addEventWithEditor({
 
 | Name        | Type     | Required | Description                           |
 | ----------- | -------- | -------- | ------------------------------------- |
-| `title`     | `string` | ✅        | Event title                           |
-| `startDate` | `number` | ✅        | Start time (milliseconds since epoch) |
-| `endDate`   | `number` | ✅        | End time (milliseconds since epoch)   |
-| `location`  | `string` | ❌        | Event location                        |
+| `title`     | `string` | ✅       | Event title                           |
+| `startDate` | `number` | ✅       | Start time (milliseconds since epoch) |
+| `endDate`   | `number` | ✅       | End time (milliseconds since epoch)   |
+| `location`  | `string` | ❌       | Event location                        |
 
 #### Returns
 
 ```ts
-Promise<void>
+Promise<void>;
 ```
 
 Resolves when the editor is dismissed.

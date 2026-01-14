@@ -1,7 +1,7 @@
 PODS:
   - boost (1.84.0)
   - DoubleConversion (1.1.6)
-  - EventsExport (0.1.0):
+  - EventsExport (1.0.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -2731,12 +2731,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
-  EventsExport: 100cb722b32b5a0083ee0f7c106eb21019c8a7f8
+  EventsExport: 15ec3d37f73654eddb101ae93f14cb6bdaba48ac
   fast_float: b32c788ed9c6a8c584d114d0047beda9664e7cc6
   FBLazyVector: a293a88992c4c33f0aee184acab0b64a08ff9458
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
-  hermes-engine: ed9ab09511c9ec378dca8060e26aae457ee8f940
+  hermes-engine: d26e19f15870db339b4c75fe52f908e63d5efd1b
   RCT-Folly: 59ec0ac1f2f39672a0c6e6cecdd39383b764646f
   RCTDeprecation: 2b70c6e3abe00396cefd8913efbf6a2db01a2b36
   RCTRequired: f3540eee8094231581d40c5c6d41b0f170237a81
