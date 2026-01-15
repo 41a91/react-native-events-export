@@ -41,11 +41,11 @@ await addEventWithEditor(
 
 Recurring events are **only supported on iOS**.
 
-Android intentionally does **not** support repeat events:
+Android intentionally does **not** support repeating events:
 
 * The calendar editor 'Intent' ignores recurrence rules
 * Supporting recurrence requires calendar permissions
-* Behavior is inconsisten across OEM calendar apps
+* Behavior is inconsistent across OEM calendar apps
 
 ### Example (iOS only)
 
