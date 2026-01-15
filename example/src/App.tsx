@@ -16,8 +16,8 @@ export default function App() {
   };
 
   const addRepeatEvent = () => {
-    try{
-      console.log("Test repeat");
+    try {
+      console.log('Test repeat');
       addEventWithEditor(
         'Test Repeat Event',
         Date.now(),
@@ -26,13 +26,13 @@ export default function App() {
         {
           frequency: 'weekly',
           interval: 1,
-          until: Date.now() + 3 * 7 * 24 * 60 * 60 * 1000
+          until: Date.now() + 3 * 7 * 24 * 60 * 60 * 1000,
         }
-      )
+      );
     } catch {
-      console.log("something happened");
+      console.log('something happened');
     }
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -42,7 +42,7 @@ export default function App() {
           addEvent();
         }}
       />
-      <Button 
+      <Button
         title={'Add Repeat Event'}
         onPress={() => {
           addRepeatEvent();

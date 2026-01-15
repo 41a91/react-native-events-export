@@ -43,9 +43,9 @@ Recurring events are **only supported on iOS**.
 
 Android intentionally does **not** support repeating events:
 
-* The calendar editor 'Intent' ignores recurrence rules
-* Supporting recurrence requires calendar permissions
-* Behavior is inconsistent across OEM calendar apps
+- The calendar editor 'Intent' ignores recurrence rules
+- Supporting recurrence requires calendar permissions
+- Behavior is inconsistent across OEM calendar apps
 
 ### Example (iOS only)
 
