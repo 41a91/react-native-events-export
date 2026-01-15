@@ -17,6 +17,7 @@ export default function App() {
 
   const addRepeatEvent = () => {
     try{
+      console.log("Test repeat");
       addEventWithEditor(
         'Test Repeat Event',
         Date.now(),

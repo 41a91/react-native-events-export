@@ -10,6 +10,18 @@ npm install react-native-events-export
 yarn add react-native-events-export
 ```
 
+### iOS
+
+```sh
+cd ios && pod install
+```
+
+> Requires **iOS 17+**
+
+### Android
+
+No additional steps required.
+
 ## Usage
 
 ```ts
@@ -17,12 +29,38 @@ import { addEventWithEditor } from 'react-native-events-export';
 
 // ...
 
-await addEventWithEditor({
+await addEventWithEditor(
   title: 'Test Event',
   startDate: Date.now(),
   endDate: Date.now() + 3600 * 1000,
   location: 'Test Location',
-});
+);
+```
+
+## Repeating Events (iOS only)
+
+Recurring events are **only supported on iOS**.
+
+Android intentionally does **not** support repeat events:
+
+* The calendar editor 'Intent' ignores recurrence rules
+* Supporting recurrence requires calendar permissions
+* Behavior is inconsisten across OEM calendar apps
+
+### Example (iOS only)
+
+```ts
+await addEventWithEditor(
+  title: 'Test repeat event',
+  startDate: Date.now(),
+  endDate: Date.now() + 3600 * 1000,
+  location: 'Test repeat location',
+  repeatOptions: {
+    frequency: 'weekly',
+    interval: 1,
+    unil: Date.now() + 1000 * 60 * 60 * 24 * 30 //30 days
+  }
+);
 ```
 
 ## API
@@ -31,12 +69,21 @@ await addEventWithEditor({
 
 #### Parameters
 
-| Name        | Type     | Required | Description                           |
-| ----------- | -------- | -------- | ------------------------------------- |
-| `title`     | `string` | ✅       | Event title                           |
-| `startDate` | `number` | ✅       | Start time (milliseconds since epoch) |
-| `endDate`   | `number` | ✅       | End time (milliseconds since epoch)   |
-| `location`  | `string` | ❌       | Event location                        |
+| Name            | Type     | Platform      | Required | Description                           |
+| --------------- | -------- | ------------- | -------- | ------------------------------------- |
+| `title`         | `string` | iOS / Android | ✅       | Event title                           |
+| `startDate`     | `number` | iOS / Android | ✅       | Start time (milliseconds since epoch) |
+| `endDate`       | `number` | iOS / Android | ✅       | End time (milliseconds since epoch)   |
+| `location`      | `string` | iOS / Android | ❌       | Event location                        |
+| `repeatOptions` | `object` | **iOS only**  | ❌       | See repeatOptions Type below          |
+
+```ts
+repeatOptions?: {
+  frequency: 'daily' | 'weekly' | 'monthly' | 'yearly';
+  interval?: number; //defaults to 1
+  until?: number; //milliseconds since epoch
+}
+```
 
 #### Returns
 

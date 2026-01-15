@@ -5,6 +5,7 @@ import com.facebook.react.module.annotations.ReactModule
 import com.facebook.react.bridge.Promise
 import android.content.Intent
 import android.provider.CalendarContract
+import com.facebook.react.bridge.ReadableMap
 import com.eventsexport.NativeEventsExportSpec
 
 @ReactModule(name = EventsExportModule.NAME)
@@ -22,6 +23,7 @@ class EventsExportModule(reactContext: ReactApplicationContext) :
     startDate: Double,
     endDate: Double,
     location: String?,
+    repeatOptions: ReadableMap?,
     promise: Promise
   ) {
     try {

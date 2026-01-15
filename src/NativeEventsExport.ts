@@ -10,7 +10,7 @@ export interface Spec extends TurboModule {
       frequency: 'daily' | 'weekly' | 'monthly' | 'yearly';
       interval: number;
       until: number;
-    }
+    } | null
   ): Promise<void>;
 }
 
