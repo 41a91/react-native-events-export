@@ -49,7 +49,7 @@ Android intentionally does **not** support repeating events:
 
 ### Examples (iOS only)
 
-##Monthly recurrence
+## Monthly recurrence
 
 ```ts
 await addEventWithEditor(
@@ -65,7 +65,7 @@ await addEventWithEditor(
 );
 ```
 
-##Weekly on Mondays and Wednesdays
+## Weekly on Mondays and Wednesdays
 ```ts
 await addEventWithEditor(
   title: 'Test weekly repeat event',
@@ -81,7 +81,7 @@ await addEventWithEditor(
 );
 ```
 
-###Important behavior: `daysOfWeek` overrides `frequency`
+### Important behavior: `daysOfWeek` overrides `frequency`
 When **`daysOfWeek` is provided**, the event will repeat **only on those weekdays**
 
 In this case:
