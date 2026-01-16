@@ -4,4 +4,5 @@ export interface RepeatOptions {
   frequency: RepeatFrequency;
   interval: number;
   until: number;
+  daysOfWeek?: number[] | null;
 }

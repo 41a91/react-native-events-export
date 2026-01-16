@@ -49,6 +49,7 @@ RCT_EXPORT_METHOD(addEventWithEditor:(NSString *)title
   NSString *frequencyString = repeat[@"frequency"];
   NSNumber *interval = repeat[@"interval"] ?: @1;
   NSNumber *untilMs = repeat[@"until"];
+  NSArray<NSNumber *> *daysOfWeek = repeat[@"daysOfWeek"];
   
   EKRecurrenceFrequency frequency = [ self recurrenceFrequencyFromString:frequencyString];
   
@@ -58,7 +59,15 @@ RCT_EXPORT_METHOD(addEventWithEditor:(NSString *)title
     end = [EKRecurrenceEnd recurrenceEndWithEndDate:untilDate];
   }
   
-  EKRecurrenceRule *rule = [[EKRecurrenceRule alloc] initRecurrenceWithFrequency:frequency interval:interval.integerValue end:end];
+  NSMutableArray<EKRecurrenceDayOfWeek *> *recurrenceDays = nil;
+  if(daysOfWeek != nil && daysOfWeek.count > 0){
+    recurrenceDays = [NSMutableArray array];
+    for (NSNumber *day in daysOfWeek){
+      [recurrenceDays addObject: [EKRecurrenceDayOfWeek dayOfWeek:(EKWeekday)day.integerValue]];
+    }
+  }
+  
+  EKRecurrenceRule *rule = [[EKRecurrenceRule alloc] initRecurrenceWithFrequency:frequency interval:interval.integerValue daysOfTheWeek:recurrenceDays daysOfTheMonth:nil monthsOfTheYear:nil weeksOfTheYear:nil daysOfTheYear:nil setPositions:nil end:end];
   
   event.recurrenceRules = @[rule];
 }
