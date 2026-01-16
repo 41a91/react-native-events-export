@@ -17,7 +17,6 @@ export default function App() {
 
   const addRepeatEvent = () => {
     try {
-      console.log('Test repeat');
       addEventWithEditor(
         'Test Repeat Event',
         Date.now(),
@@ -27,6 +26,25 @@ export default function App() {
           frequency: 'weekly',
           interval: 1,
           until: Date.now() + 3 * 7 * 24 * 60 * 60 * 1000,
+        }
+      );
+    } catch {
+      console.log('something happened');
+    }
+  };
+
+  const addRepeatEventWithDays = () => {
+    try {
+      addEventWithEditor(
+        'Test Repeat Weekly Event',
+        Date.now(),
+        Date.now() + 3600 * 1000,
+        'Test Location',
+        {
+          frequency: 'weekly',
+          interval: 1,
+          until: Date.now() + 3 * 7 * 24 * 60 * 60 * 1000,
+          daysOfWeek: [2, 4, 6],
         }
       );
     } catch {
@@ -46,6 +64,12 @@ export default function App() {
         title={'Add Repeat Event'}
         onPress={() => {
           addRepeatEvent();
+        }}
+      />
+      <Button
+        title={'Add Repeat Event With Days'}
+        onPress={() => {
+          addRepeatEventWithDays();
         }}
       />
     </View>

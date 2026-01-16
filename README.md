@@ -47,21 +47,52 @@ Android intentionally does **not** support repeating events:
 - Supporting recurrence requires calendar permissions
 - Behavior is inconsistent across OEM calendar apps
 
-### Example (iOS only)
+### Examples (iOS only)
+
+## Monthly recurrence
 
 ```ts
 await addEventWithEditor(
-  title: 'Test repeat event',
+  title: 'Test monthly repeat event',
   startDate: Date.now(),
   endDate: Date.now() + 3600 * 1000,
   location: 'Test repeat location',
   repeatOptions: {
-    frequency: 'weekly',
+    frequency: 'monthly',
     interval: 1,
-    unil: Date.now() + 1000 * 60 * 60 * 24 * 30 //30 days
+    unil: Date.now() + 1000 * 60 * 60 * 24 * 60 //2 months
   }
 );
 ```
+
+## Weekly on Mondays and Wednesdays
+
+```ts
+await addEventWithEditor(
+  title: 'Test weekly repeat event',
+  startDate: Date.now(),
+  endDate: Date.now() + 3600 * 1000,
+  location: 'Test weekly repeat location',
+  repeatOptions: {
+    frequency: 'weekly',
+    interval: 1,
+    until: Date.now() + 1000 * 60 * 60 * 24 * 30, //30 days
+    daysOfWeek: [2, 4]
+  }
+);
+```
+
+### Important behavior: `daysOfWeek` overrides `frequency`
+
+When **`daysOfWeek` is provided**, the event will repeat **only on those weekdays**
+
+In this case:
+
+- The `frequency` value is **ignored**
+- The recurrence is treated as **weekly**
+- The calendar determines occurrences strictly from `daysOfWeek`
+
+---
 
 ## API
 
@@ -77,11 +108,14 @@ await addEventWithEditor(
 | `location`      | `string` | iOS / Android | ❌       | Event location                        |
 | `repeatOptions` | `object` | **iOS only**  | ❌       | See repeatOptions Type below          |
 
+---
+
 ```ts
 repeatOptions?: {
   frequency: 'daily' | 'weekly' | 'monthly' | 'yearly';
   interval?: number; //defaults to 1
   until?: number; //milliseconds since epoch
+  daysOfWeek?: number[]; //1 = Sunday ... 7 = Saturday
 }
 ```
 
