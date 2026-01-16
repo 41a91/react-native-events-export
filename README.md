@@ -66,6 +66,7 @@ await addEventWithEditor(
 ```
 
 ## Weekly on Mondays and Wednesdays
+
 ```ts
 await addEventWithEditor(
   title: 'Test weekly repeat event',
@@ -82,13 +83,14 @@ await addEventWithEditor(
 ```
 
 ### Important behavior: `daysOfWeek` overrides `frequency`
+
 When **`daysOfWeek` is provided**, the event will repeat **only on those weekdays**
 
 In this case:
 
-* The `frequency` value is **ignored**
-* The recurrence is treated as **weekly**
-* The calendar determines occurrences strictly from `daysOfWeek`
+- The `frequency` value is **ignored**
+- The recurrence is treated as **weekly**
+- The calendar determines occurrences strictly from `daysOfWeek`
 
 ---
 

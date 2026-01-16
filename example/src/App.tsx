@@ -44,7 +44,7 @@ export default function App() {
           frequency: 'weekly',
           interval: 1,
           until: Date.now() + 3 * 7 * 24 * 60 * 60 * 1000,
-          daysOfWeek: [2,4,6]
+          daysOfWeek: [2, 4, 6],
         }
       );
     } catch {
@@ -66,7 +66,7 @@ export default function App() {
           addRepeatEvent();
         }}
       />
-      <Button 
+      <Button
         title={'Add Repeat Event With Days'}
         onPress={() => {
           addRepeatEventWithDays();
